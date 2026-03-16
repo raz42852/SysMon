@@ -38,7 +38,7 @@ def getDiskUsage():
             f"{bytes2human(usage.total)}",
             f"{bytes2human(usage.used)}",
             f"{bytes2human(usage.free)}",
-            f"{int(usage.percent)}",
+            f"{int(usage.percent)}%",
             part.fstype,
             part.mountpoint
         ])
