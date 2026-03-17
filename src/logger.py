@@ -54,3 +54,7 @@ def init_file(path):
             if not first_char:
                 with open(path, 'w') as file:
                     file.write("""{ "CPU" : [], "Memory" : [], "Disk Usage" : []}""")
+
+def empty_file(path):
+    with open(path, 'w') as file:
+        file.write("""{ "CPU" : [], "Memory" : [], "Disk Usage" : []}""")

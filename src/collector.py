@@ -6,8 +6,8 @@ def getCPUData():
     data = {}
     data['cores'] = psutil.cpu_count(logical=False)
     data['threads'] = psutil.cpu_count(logical=True)
-    data['cpu_per'] = psutil.cpu_percent(interval=1, percpu=False)
-    data['cpu_per_per'] = psutil.cpu_percent(interval=1, percpu=True)
+    data['cpu_per'] = psutil.cpu_percent(percpu=False)
+    data['cpu_per_per'] = psutil.cpu_percent(percpu=True)
     data['freq'] = psutil.cpu_freq(percpu=True)
     return data
 
