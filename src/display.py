@@ -74,8 +74,8 @@ def terminate():
 parser = argparse.ArgumentParser()
 parser.add_argument('--interval', type=int, help="Enter an interval", default=2)
 parser.add_argument("--log", type=str, help="Enter an path for logger file")
-parser.add_argument("--cpu_warn", type=int, help="Enter a percentage number for cpu warn")
-parser.add_argument("--mem_warn", type=int, help="Enter a percentage number for mem warn")
+parser.add_argument("--cpu_warn", type=int, help="Enter a percentage number for cpu warn", default=80)
+parser.add_argument("--mem_warn", type=int, help="Enter a percentage number for mem warn", default=80)
 args = parser.parse_args()
 
 interval = args.interval

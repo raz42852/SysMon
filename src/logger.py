@@ -1,4 +1,5 @@
 import json
+import datetime 
 
 def save_json(cpu_data, memory_data, disk_usage_data, path):
     with open(path, 'r+') as file:
@@ -44,17 +45,29 @@ def get_disk_usage_json(disk_usage_data):
     return all_disks
 
 def init_file(path):
+    data = {
+        "Date": datetime.date.today().strftime("%d/%m/%Y"),
+        "CPU": [],
+        "Memory": [],
+        "Disk Usage": []
+    }
     if (not path.exists()):
         open("logger.json", "x")
         with open(path, 'w') as file:
-            file.write("""{ "CPU" : [], "Memory" : [], "Disk Usage" : []}""")
+            json.dump(data, file)
     else:
         with open(path, 'r') as file:
             first_char = file.read(1)
             if not first_char:
                 with open(path, 'w') as file:
-                    file.write("""{ "CPU" : [], "Memory" : [], "Disk Usage" : []}""")
+                    json.dump(data, file)
 
 def empty_file(path):
+    data = {
+        "Date": datetime.date.today().strftime("%d/%m/%Y"),
+        "CPU": [],
+        "Memory": [],
+        "Disk Usage": []
+    }
     with open(path, 'w') as file:
-        file.write("""{ "CPU" : [], "Memory" : [], "Disk Usage" : []}""")
+        json.dump(data, file)
