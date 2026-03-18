@@ -18,7 +18,7 @@ def getMemory():
         bytes2human(virt_mem.total),
         bytes2human(virt_mem.available),
         bytes2human(virt_mem.used),
-        f"{virt_mem.percent}%",
+        virt_mem.percent,
         bytes2human(virt_mem.free)
     ]
     return data

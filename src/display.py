@@ -22,8 +22,13 @@ def get_cpu_table(cpu_data):
     cpu_table.add_column("Num Threads")
     cpu_table.add_column("CPU Percentage")
     cpu_row = [str(cpu_data['cores']),
-                str(cpu_data['threads']),
-                f"{str(cpu_data['cpu_per'])}%"]
+                str(cpu_data['threads'])]
+    
+    if (int(cpu_data['cpu_per']) >= int(cpu_warn)):
+        cpu_row.append(f"[red]{str(cpu_data['cpu_per'])}%[/red]")
+    else:
+        cpu_row.append(f"{str(cpu_data['cpu_per'])}%")
+    
         
     for i in range(len(cpu_data['cpu_per_per'])):
         cpu_table.add_column(f"Thread {i+1}")
@@ -43,7 +48,7 @@ def get_memory_table(memory_data):
     memory_table.add_column("Used")
     memory_table.add_column("Percent")
     memory_table.add_column("Free")
-
+    memory_data[3] = f"[red]{memory_data[3]}%[/red]" if (int(memory_data[3]) >= int(mem_warn)) else f"{memory_data[3]}%"
     memory_table.add_row(*memory_data)
     return memory_table
 
@@ -68,11 +73,15 @@ def terminate():
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--interval', type=int, help="Enter an interval", default=2)
-parser.add_argument("--log", type=str, help="Enter an path for logger file", default=2)
+parser.add_argument("--log", type=str, help="Enter an path for logger file")
+parser.add_argument("--cpu_warn", type=int, help="Enter a percentage number for cpu warn")
+parser.add_argument("--mem_warn", type=int, help="Enter a percentage number for mem warn")
 args = parser.parse_args()
 
 interval = args.interval
 path = args.log
+cpu_warn = args.cpu_warn
+mem_warn = args.mem_warn
 
 panel = Panel("System Monitoring CLI Tool", title="Welcome")
 print(panel)
