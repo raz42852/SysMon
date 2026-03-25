@@ -3,6 +3,7 @@ from rich.table import Table
 from rich.panel import Panel
 from rich.console import Console
 from rich.layout import Layout
+from rich import print
 import time
 import src.collector
 from src.logger import Logger
@@ -21,6 +22,7 @@ class Display:
             Layout(name="right"),
         )
         self.panel = Panel("System Monitoring CLI Tool", title="Welcome")
+        print(self.panel)
         self.interval = interval
         self.cpu_warn = cpu_warn
         self.mem_warn = mem_warn
