@@ -3,9 +3,9 @@ from rich import print
 from pathlib import Path
 import keyboard
 import sys
-from report import Report
-from display import Display
-from logger import Logger
+from src.report import Report
+from src.display import Display
+from src.logger import Logger
 import os
 
 def terminate(display, logger):

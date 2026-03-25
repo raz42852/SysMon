@@ -13,6 +13,10 @@
 רציתי לעשות דוח יומי ככה שידפיס את כל הערכי הסף באותו יום שנקלט.
 היום נקלט לפי הflag date והשתמשתי בפעולות לכל סוג ויצרתי מילון עם מפתחות של מינימום, ממוצע ומקסימום וככה יעבור על המידע ויעדכן אותו.
 העברתי את כל הקוד שלי לclass ככה שיהיה יותר מסודר וקריא ויצרתי main שבו יהיה את הדברים העיקריים להרצה.
+אני לא מכיר את הקובץ pyproject.toml ואף פעם לא השתמשתי בו אז חקרתי עליו ויצרתי את הקובץ לפי הפרויקט הזה.
+אחר כך עשיתי בדיקה לכל הפרויקט שלי בעזרת pytest למרות שלא הכרתי את הספריה הזו אז קודם כל עשיתי עליה חקר ואחר כך בניתי את הקובצי בדיקה.
+באחד הקבצים הייתי צריך לייבא את הקבצים מתיקיית הsrc אך נתקלתי בבאג שלא נתן לי.
+אחרי חקר הבנתי שחייב את הקובץ init כדי שהתיקיית src תחשב כמודול.
 
 מקורות מידע : 
 https://docs.python.org/3/library/argparse.html
@@ -22,3 +26,5 @@ https://stackoverflow.com/questions
 https://www.reddit.com/
 https://docs.python.org/3/library/json.html
 https://www.w3schools.com/python/python_datetime.asp
+https://packaging.python.org/en/latest/tutorials/packaging-projects/
+https://docs.pytest.org/en/stable/getting-started.html

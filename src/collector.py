@@ -12,7 +12,7 @@ def getCPUData():
     return data
 
 def getMemory():
-    # return dictionary with memory data
+    # return list with memory data
     virt_mem = psutil.virtual_memory()
     data = [
         bytes2human(virt_mem.total),
@@ -24,7 +24,7 @@ def getMemory():
     return data
     
 def getDiskUsage():
-    # return dictionary with disk usage
+    # return list with disk usage
     data = []
     for part in psutil.disk_partitions(all=False):
         if 'cdrom' in part.opts or not part.fstype:

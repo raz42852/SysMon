@@ -4,8 +4,8 @@ from rich.panel import Panel
 from rich.console import Console
 from rich.layout import Layout
 import time
-import collector
-from logger import Logger
+import src.collector
+from src.logger import Logger
 import sys
 
 class Display:
@@ -28,9 +28,9 @@ class Display:
         logger = Logger(self.logger_file)
         with Live(self.layout, refresh_per_second=1) as self.live:
             while True:
-                cpu_data = collector.getCPUData()
-                memory_data = collector.getMemory()
-                disk_usage_data = collector.getDiskUsage()
+                cpu_data = src.collector.getCPUData()
+                memory_data = src.collector.getMemory()
+                disk_usage_data = src.collector.getDiskUsage()
                 self.cpu_table = self.get_cpu_table(cpu_data)
                 self.memory_table = self.get_memory_table(memory_data)
                 self.disk_usage_table = self.get_disk_usage_table(disk_usage_data)
